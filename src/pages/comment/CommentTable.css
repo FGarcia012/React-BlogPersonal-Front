@@ -1,0 +1,133 @@
+/* Contenedor general */
+.comments-container {
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: transparent; /* Fondo transparente */
+    border-radius: 12px;
+    max-width: 1000px; /* Ancho máximo igual al de usuarios */
+    margin: 40px auto;
+    min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y: auto; /* Permite scroll vertical */
+    isolation: isolate; /* Evita que opacidad de padres afecte */
+}
+
+/* Título de la tabla */
+.comments-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Tabla principal */
+.comments-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff; /* Fondo blanco sólido */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.comments-table thead {
+    background-color: #0066cc;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Celdas de encabezado y cuerpo */
+.comments-table th,
+.comments-table td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Última fila sin borde */
+.comments-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Hover fila */
+.comments-table tbody tr:hover {
+    background-color: #f5f9ff;
+    transition: background-color 0.2s ease;
+}
+
+/* Contenedor de botones */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Botón estilo ícono */
+.icon-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Hover efecto para botón */
+.icon-button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Efecto clic */
+.icon-button:active {
+    transform: scale(0.95);
+}
+
+/* Íconos de editar y eliminar */
+.icon-edit {
+    color: #f0ad4e;
+    font-size: 18px;
+}
+
+.icon-delete {
+    color: #d9534f;
+    font-size: 18px;
+}
+
+.course-content {
+    display: flex;
+    gap: 20px;
+}
+
+.table-section {
+    flex: 2;
+    color: #333;
+}
+
+.form-section {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.select-course {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #bfc9d9;
+    border-radius: 6px;
+    background: #f8fafc;
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #333;
+    transition: border-color 0.2s;
+}
+
+.select-course:focus {
+    border-color: #0066cc;
+    outline: none;
+    background: #fff;
+}

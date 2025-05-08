@@ -1,0 +1,91 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('../../assets/img/blogPersonalFondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Hace que el fondo sea fijo */
+    background-color: transparent;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 100px;
+    min-height: calc(100vh - 65px);
+    background-color: transparent;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dashboard-content {
+    font-size: 1.2rem;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .dashboard-content {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 100;
+    margin-top: 0;
+}
+
+.navbar-logo img {
+    height: 100px;
+    margin-left: 40px;
+    width: auto;
+    display: inline-block;
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+    margin-left: auto;
+}
+
+.nav-button {
+    background-color: #f4e9cd;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 40px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 20;
+}
+
+.nav-button:hover {
+    background-color: white;
+}
