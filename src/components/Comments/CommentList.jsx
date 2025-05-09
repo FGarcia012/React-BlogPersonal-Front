@@ -20,7 +20,7 @@ export const CommentList = () => {
     const publicationId = queryParams.get('publicationId');
 
     const filteredComments = comments.filter(
-        (c) => c.publication === publicationId && `${c.author}`.toLowerCase().includes(search.toLowerCase())
+        (c) => c.publication._id === publicationId && `${c.author}`.toLowerCase().includes(search.toLowerCase())
     );
 
     const handleAddComment = async () => {
@@ -33,7 +33,7 @@ export const CommentList = () => {
             setNewComment({ publication: '', author: '', description: '' });
         }
     };
-
+    console.log(comments);
     return (
         <div className="comments-container">
             <h2 className="comments-title">Lista de Comentarios</h2>

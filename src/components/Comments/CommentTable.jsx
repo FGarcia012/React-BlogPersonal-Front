@@ -13,7 +13,7 @@ export const CommentTable = ({ comments }) => (
         <tbody>
             {comments.map((com) => (
                 <tr key={com.ccid}>
-                    <td>{com.publication}</td>
+                    <td>{com.publication.title}</td>
                     <td>{com.author}</td>
                     <td>{com.description}</td>
                     <td>{com.date}</td>

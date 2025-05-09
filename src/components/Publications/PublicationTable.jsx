@@ -13,7 +13,7 @@ export const PublicationTable = ({ publications, onPublicationClick }) => (
         <tbody>
             {publications.map((pub) => (
                 <tr key={pub.pid} onClick={() => onPublicationClick(pub.pid)}>
-                    <td>{pub.course}</td>
+                    <td>{pub.course.name}</td>
                     <td>{pub.title}</td>
                     <td>{pub.description}</td>
                     <td>{pub.date}</td>

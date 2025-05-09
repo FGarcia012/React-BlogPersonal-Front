@@ -14,7 +14,8 @@ export const PublicationsList = () => {
     const courseId = queryParams.get('courseId');
 
     const filteredPublications = publication.filter((p) =>
-        p.course === courseId && `${p.title}`.toLowerCase().includes(search.toLowerCase())
+        `${p.course}`.toLowerCase().includes(search.toLowerCase()) &&
+        `${p.title}`.toLowerCase().includes(search.toLowerCase())
     );
 
     const handlePublicationClick = (publicationId) => {
