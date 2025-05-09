@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const PublicationTable = ({ publications }) => (
+export const PublicationTable = ({ publications, onPublicationClick }) => (
     <table className="publications-table">
         <thead>
             <tr>
@@ -12,7 +12,7 @@ export const PublicationTable = ({ publications }) => (
         </thead>
         <tbody>
             {publications.map((pub) => (
-                <tr key={pub.pid}>
+                <tr key={pub.pid} onClick={() => onPublicationClick(pub.pid)}>
                     <td>{pub.course}</td>
                     <td>{pub.title}</td>
                     <td>{pub.description}</td>

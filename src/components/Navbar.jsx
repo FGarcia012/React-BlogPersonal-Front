@@ -8,8 +8,6 @@ export const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-links">
         <Link to="/courses" className="nav-link">Cursos</Link>
-        <Link to="/publications" className="nav-link">Publicaciones</Link>
-        <Link to="/comments" className="nav-link">Comentarios</Link>
       </div>
     </nav>
   );

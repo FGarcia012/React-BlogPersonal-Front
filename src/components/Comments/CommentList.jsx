@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { CommentTable } from './CommentTable';
 import { CommentToolbar } from './CommentToolbar';
 import { useComment } from '../../shared/hooks';
+import { useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 export const CommentList = () => {
     const { comments, addComent } = useComment();
@@ -12,12 +15,20 @@ export const CommentList = () => {
         description: '',
     });
 
-    const filteredComments = comments.filter((c) =>
-        `${c.author}`.toLowerCase().includes(search.toLowerCase())
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const publicationId = queryParams.get('publicationId');
+
+    const filteredComments = comments.filter(
+        (c) => c.publication === publicationId && `${c.author}`.toLowerCase().includes(search.toLowerCase())
     );
 
     const handleAddComment = async () => {
-        const success = await addComent(newComment);
+        if (!newComment.author || !newComment.description) {
+            toast.error('Por favor, completa todos los campos.');
+            return;
+        }
+        const success = await addComent({ ...newComment, publication: publicationId });
         if (success) {
             setNewComment({ publication: '', author: '', description: '' });
         }
@@ -36,12 +47,6 @@ export const CommentList = () => {
             <div className="form-section">
                 <input
                     type="text"
-                    placeholder="Publicación"
-                    value={newComment.publication}
-                    onChange={(e) => setNewComment({ ...newComment, publication: e.target.value })}
-                />
-                <input
-                    type="text"
                     placeholder="Autor"
                     value={newComment.author}
                     onChange={(e) => setNewComment({ ...newComment, author: e.target.value })}
@@ -56,7 +61,11 @@ export const CommentList = () => {
             </div>
 
             <div className="table-section">
-                <CommentTable comments={filteredComments} />
+                {filteredComments.length > 0 ? (
+                    <CommentTable comments={filteredComments} />
+                ) : (
+                    <p>No hay comentarios disponibles para esta publicación.</p>
+                )}
             </div>
         </div>
     );

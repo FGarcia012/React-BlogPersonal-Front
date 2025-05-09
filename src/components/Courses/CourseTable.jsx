@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CourseTable = ({ courses }) => (
+export const CourseTable = ({ courses, onCourseClick }) => (
     <table className="courses-table">
         <thead>
             <tr>
@@ -9,7 +9,7 @@ export const CourseTable = ({ courses }) => (
         </thead>
         <tbody>
             {courses.map((cou) => (
-                <tr key={cou.cid}>
+                <tr key={cou.cid} onClick={() => onCourseClick(cou.cid)}>
                     <td>{cou.name}</td>
                 </tr>
             ))}

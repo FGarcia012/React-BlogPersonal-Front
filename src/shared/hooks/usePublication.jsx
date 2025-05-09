@@ -26,8 +26,7 @@ export const usePublication = () => {
     useEffect(() => {
         getPublications();
     }, []);
-
-    console.log(publication)
+    
     return {
         publication,
         isLoading,
