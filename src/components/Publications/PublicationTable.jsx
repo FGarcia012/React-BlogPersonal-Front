@@ -8,6 +8,7 @@ export const PublicationTable = ({ publications, onPublicationClick }) => (
                 <th>Título</th>
                 <th>Descripcion</th>
                 <th>Fecha</th>
+                <th>Comentarios</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,13 @@ export const PublicationTable = ({ publications, onPublicationClick }) => (
                     <td>{pub.title}</td>
                     <td>{pub.description}</td>
                     <td>{pub.date}</td>
+                    <td>
+                        <ul>
+                            {pub.comments.map((comment, index) => (
+                                <li key={index}>{comment.author}: {comment.description}</li>
+                            ))}
+                        </ul>
+                    </td>
                 </tr>
             ))}
         </tbody>
