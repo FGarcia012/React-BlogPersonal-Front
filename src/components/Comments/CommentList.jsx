@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 export const CommentList = () => {
-    const { comments, addComent } = useComment();
+    const { comments, addComent, getComments } = useComment();
     const [search, setSearch] = useState('');
     const [newComment, setNewComment] = useState({
         publication: '',
@@ -31,9 +31,11 @@ export const CommentList = () => {
         const success = await addComent({ ...newComment, publication: publicationId });
         if (success) {
             setNewComment({ publication: '', author: '', description: '' });
+            toast.success('Comentario agregado exitosamente.');
+            await getComments();
         }
     };
-    console.log(comments);
+
     return (
         <div className="comments-container">
             <h2 className="comments-title">Lista de Comentarios</h2>
