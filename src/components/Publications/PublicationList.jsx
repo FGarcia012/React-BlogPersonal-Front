@@ -13,17 +13,17 @@ export const PublicationsList = () => {
     const queryParams = new URLSearchParams(location.search);
     const courseId = queryParams.get('courseId');
 
-    const filteredPublications = publication.filter((p) =>
-        `${p.course}`.toLowerCase().includes(search.toLowerCase()) &&
-        `${p.title}`.toLowerCase().includes(search.toLowerCase())
-    );
+    // Filtrar y ordenar publicaciones por curso (A-Z)
+    const filteredPublications = publication
+        .filter((p) =>
+            `${p.course.name}`.toLowerCase().includes(search.toLowerCase()) &&
+            `${p.title}`.toLowerCase().includes(search.toLowerCase())
+        )
+        .sort((a, b) => a.course.name.localeCompare(b.course.name)); // Ordenar A-Z por el nombre del curso
 
     const handlePublicationClick = (publicationId) => {
         navigate(`/comments?publicationId=${publicationId}`);
     };
-
-    console.log('courseId from URL:', courseId);
-    console.log('Filtered Publications:', filteredPublications);
 
     return (
         <div className="publications-container">

@@ -19,9 +19,12 @@ export const CommentList = () => {
     const queryParams = new URLSearchParams(location.search);
     const publicationId = queryParams.get('publicationId');
 
-    const filteredComments = comments.filter(
-        (c) => c.publication._id === publicationId && `${c.author}`.toLowerCase().includes(search.toLowerCase())
-    );
+    // Filtrar y ordenar comentarios por fecha (más recientes primero)
+    const filteredComments = comments
+        .filter(
+            (c) => c.publication._id === publicationId && `${c.author}`.toLowerCase().includes(search.toLowerCase())
+        )
+        .sort((a, b) => new Date(b.date) - new Date(a.date)); // Ordenar por fecha descendente
 
     const handleAddComment = async () => {
         if (!newComment.author || !newComment.description) {
