@@ -12,17 +12,24 @@ export const PublicationsList = () => {
 
     const queryParams = new URLSearchParams(location.search);
     const courseId = queryParams.get('courseId');
+    console.log(`courseId from URL: ${courseId}`);
 
-    // Filtrar y ordenar publicaciones por curso (A-Z)
+    console.log('All publications:', publication);
+    console.log('Structure of a publication:', publication[0]); 
+    console.log('Course structure in a publication:', publication[0]?.course); 
+
     const filteredPublications = publication
-        .filter((p) =>
-            `${p.course.name}`.toLowerCase().includes(search.toLowerCase()) &&
-            `${p.title}`.toLowerCase().includes(search.toLowerCase())
-        )
-        .sort((a, b) => a.course.name.localeCompare(b.course.name)); // Ordenar A-Z por el nombre del curso
+        .filter((p) => {
+            console.log(`Comparing: ${String(p.course?._id)} === ${String(courseId)}`);
+            return (!courseId || String(p.course?._id) === String(courseId)) &&
+                `${p.title}`.toLowerCase().includes(search.toLowerCase());
+        })
+        .sort((a, b) => a.course.name.localeCompare(b.course.name));
+
+    console.log('Filtered publications:', filteredPublications);
 
     const handlePublicationClick = (publicationId) => {
-        navigate(`/comments?publicationId=${publicationId}`);
+        navigate(`/comments?publicationId=${publicationId}`); 
     };
 
     return (

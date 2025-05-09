@@ -14,7 +14,8 @@ export const CoursesList = () => {
     );
 
     const handleCourseClick = (courseId) => {
-        navigate(`/publications?courseId=${courseId}`);
+    console.log(`Navigating to /publications?courseId=${courseId}`); 
+    navigate(`/publications?courseId=${courseId}`);
     };
 
     return (

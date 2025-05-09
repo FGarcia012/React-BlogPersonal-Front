@@ -11,17 +11,18 @@ export const usePublication = () => {
     const navigate = useNavigate();
 
     const getPublications = async () => {
-        setIsLoading(true);
-        try {
-            const { publications } = await getPublicationsRequest();
-            setPublication(Array.isArray(publications) ? publications : []);
-            setIsLoading(false);
-        } catch (err) {
-            toast.error('Error al cargar las publicaciones' + err.message);
-            setPublication([]); 
-            setIsLoading(false);
-        }
+    setIsLoading(true);
+    try {
+        const { publications } = await getPublicationsRequest();
+        console.log('Fetched publications:', publications);
+        setPublication(Array.isArray(publications) ? publications : []);
+        setIsLoading(false);
+    } catch (err) {
+        toast.error('Error al cargar las publicaciones' + err.message);
+        setPublication([]);
+        setIsLoading(false);
     }
+};
 
     useEffect(() => {
         getPublications();

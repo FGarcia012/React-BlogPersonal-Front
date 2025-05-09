@@ -1,6 +1,6 @@
 .navbar {
     display: flex;
-    justify-content: center; /* Centra los enlaces horizontalmente */
+    justify-content: center;
     align-items: center;
     padding: 10px 20px;
     background-color: #0066cc;
