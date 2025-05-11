@@ -8,3 +8,4 @@ export { PublicationToolbar } from './Publications/PublicationToolbar.jsx';
 export { CommentTable } from './Comments/CommentTable.jsx';
 export { CommentToolbar } from './Comments/CommentToolbar.jsx';
 export { CommentList } from './Comments/CommentList.jsx';
+export { DateFilter } from './DateFilter.jsx';

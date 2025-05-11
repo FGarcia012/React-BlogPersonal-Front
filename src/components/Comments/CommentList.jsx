@@ -40,7 +40,7 @@ export const CommentList = () => {
 
     return (
         <div className="comments-container">
-            <h2 className="comments-title">Lista de Comentarios</h2>
+            <h2 className="comments-title">Comentarios</h2>
 
             <CommentToolbar
                 search={search}

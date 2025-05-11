@@ -20,7 +20,7 @@ export const CoursesList = () => {
 
     return (
         <div className="courses-container">
-            <h2 className='courses-title'>Lista de Cursos</h2>
+            <h2 className='courses-title'>Cursos</h2>
 
             <CourseToolbar 
                 search={search}

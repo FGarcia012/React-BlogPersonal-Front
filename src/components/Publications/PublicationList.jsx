@@ -34,7 +34,7 @@ export const PublicationsList = () => {
 
     return (
         <div className="publications-container">
-            <h2 className="publications-title">Lista de Publicaciones</h2>
+            <h2 className="publications-title">Publicaciones</h2>
 
             <PublicationToolbar
                 search={search}

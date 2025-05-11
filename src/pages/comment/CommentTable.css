@@ -1,79 +1,155 @@
-/* Contenedor general */
+/* Contenedor principal estilo Instagram */
 .comments-container {
-    padding: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
-    border-radius: 12px;
-    max-width: 1000px;
-    margin: 40px auto;
-    min-height: 100vh;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    color: #ffffff; /* Texto blanco */
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    color: #262626;
 }
 
-/* Título de la tabla */
+/* Título */
 .comments-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #ffcc00; /* Amarillo para destacar */
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    font-weight: 600;
+    color: #262626;
+    padding: 16px;
+    border-bottom: 1px solid #efefef;
+    margin: 0;
 }
 
-/* Tabla principal */
-.comments-table {
+/* Sección de formulario */
+.form-section {
+    padding: 16px;
+    border-bottom: 1px solid #efefef;
+}
+
+.form-section input,
+.form-section textarea {
     width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    font-size: 14px;
+    resize: none;
 }
 
-/* Encabezado */
-.comments-table thead {
-    background-color: #0066cc; /* Azul oscuro */
+.form-section textarea {
+    height: 100px;
+}
+
+.form-section button {
+    background-color: #0095f6;
     color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
 }
 
-/* Celdas de encabezado y cuerpo */
-.comments-table th,
-.comments-table td {
-    padding: 16px 20px;
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.form-section button:hover {
+    background-color: #1877f2;
 }
 
-/* Última fila sin borde */
-.comments-table tbody tr:last-child td {
+/* Lista de comentarios */
+.table-section {
+    padding: 0;
+}
+
+/* Reemplazar tabla por lista de estilo Instagram */
+.comments-table {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background-color: #fafafa;
+}
+
+.comments-table tbody {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments-table tr {
+    display: flex;
+    padding: 12px 16px;
+    border-bottom: 1px solid #efefef;
+}
+
+.comments-table tr:last-child {
     border-bottom: none;
 }
 
-/* Hover fila */
-.comments-table tbody tr:hover {
-    background-color: rgba(0, 102, 204, 0.1); /* Azul claro */
-    transition: background-color 0.3s ease;
+/* Estilo para el contenedor de comentarios */
+.comment-item {
+    padding: 20px;
+    margin: 15px 0;
+    border-bottom: 1px solid #efefef;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .comments-table th,
-    .comments-table td {
-        font-size: 14px;
-        padding: 12px 10px;
-    }
-
-    .comments-title {
-        font-size: 24px;
-    }
+.comment-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.table-section {
-    flex: 2;
-    color: #000000;
+.comment-author {
+    font-weight: 600;
+    color: #262626;
+    font-size: 14px;
+}
+
+.comment-content {
+    color: #262626;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 8px 0;
+    white-space: pre-wrap;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: #8e8e8e;
+    margin-top: 12px;
+}
+
+/* Hover effect en los comentarios */
+.comment-item:hover {
+    background-color: #fafafa;
+    transition: background-color 0.2s ease;
+}
+
+/* Último comentario sin borde inferior */
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+/* Barra de búsqueda */
+.toolbar {
+    padding: 8px 16px;
+    border-bottom: 1px solid #efefef;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+/* Mensaje cuando no hay comentarios */
+.table-section p {
+    padding: 16px;
+    text-align: center;
+    color: #8e8e8e;
+    font-size: 14px;
 }

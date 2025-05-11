@@ -1,117 +1,162 @@
-/* Contenedor general */
+/* Contenedor principal al estilo Instagram */
 .publications-container {
-    padding: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
-    border-radius: 12px;
-    max-width: 1000px;
-    margin: 40px auto;
-    min-height: 100vh;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    color: #ffffff; /* Texto blanco */
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Título de la tabla */
-.publications-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #ffcc00; /* Amarillo para destacar */
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-/* Tabla principal */
-.publications-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Encabezado */
-.publications-table thead {
-    background-color: #0066cc; /* Azul oscuro */
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Celdas de encabezado y cuerpo */
-.publications-table th,
-.publications-table td {
-    padding: 16px 20px;
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-/* Última fila sin borde */
-.publications-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* Hover fila */
-.publications-table tbody tr:hover {
-    background-color: rgba(0, 102, 204, 0.1); /* Azul claro */
-    transition: background-color 0.3s ease;
-}
-
-/* Botones de acción */
-.action-buttons {
+/* Contenedor de publicaciones */
+.publications-feed {
+    max-width: 600px;
+    margin: 20px auto;
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Botón estilo ícono */
-.icon-button {
-    border: none;
-    background-color: transparent;
+/* Tarjeta de publicación */
+.publication-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: background-color 0.3s, transform 0.2s;
+    border: 2px solid transparent;
 }
 
-/* Hover efecto para botón */
-.icon-button:hover {
-    background-color: rgba(0, 102, 204, 0.2);
+/* Efecto hover con diferentes opciones de color */
+.publication-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto clic */
-.icon-button:active {
-    transform: scale(0.95);
+/* Clases para diferentes colores de marco al seleccionar */
+.publication-card:active {
+    border-color: var(--selected-color);
 }
 
-/* Íconos de editar y eliminar */
-.icon-edit {
-    color: #f0ad4e;
-    font-size: 20px;
+:root {
+    --selected-color: #1e3a8a; /* Azul marino por defecto */
 }
 
-.icon-delete {
-    color: #d9534f;
-    font-size: 20px;
+/* Variantes de color */
+.publication-card.white:active { border-color: #ffffff; }
+.publication-card.navy:active { border-color: #1e3a8a; }
+.publication-card.red:active { border-color: #dc2626; }
+.publication-card.gray:active { border-color: #4b5563; }
+.publication-card.yellow:active { border-color: #fbbf24; }
+.publication-card.green:active { border-color: #059669; }
+.publication-card.pink:active { border-color: #db2777; }
+.publication-card.gold:active { border-color: #d97706; }
+
+/* Encabezado de la publicación */
+.publication-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.publication-course {
+    font-weight: 600;
+    color: #374151;
+}
+
+.publication-date {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Contenido de la publicación */
+.publication-content {
+    padding: 16px;
+}
+
+.publication-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.publication-description {
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+/* Sección de comentarios */
+.publication-footer {
+    padding: 16px;
+    background-color: #f9fafb;
+    border-top: 1px solid #f3f4f6;
+}
+
+.comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.comments-count {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.recent-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.comment-preview {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin: 0;
+}
+
+.comment-preview strong {
+    color: #374151;
+    margin-right: 4px;
+}
+
+/* Barra de búsqueda */
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+/* Título de la sección */
+.publications-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Mensaje cuando no hay publicaciones */
+.no-publications {
+    text-align: center;
+    padding: 40px 20px;
+    color: #8e8e8e;
+    font-size: 14px;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .publications-table th,
-    .publications-table td {
-        font-size: 14px;
-        padding: 12px 10px;
+@media (max-width: 640px) {
+    .publications-container {
+        padding: 12px;
     }
 
-    .publications-title {
-        font-size: 24px;
+    .publication-card {
+        border-radius: 0;
     }
-}
-
-.table-section {
-    flex: 2;
-    color: #000000;
 }

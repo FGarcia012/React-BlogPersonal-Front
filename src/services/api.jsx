@@ -16,6 +16,21 @@ export const getPublications = async () => {
     return response.data;
 }
 
+export const getPublicationsByDate = async (startDate, endDate) => {
+    try {
+        const response = await apiClient.get('/publications/getByDateRange', {
+            params: {
+                startDate,
+                endDate
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching publications by date:', error);
+        throw error; // Propaga el error para manejarlo en el hook
+    }
+};
+
 export const getComments = async () => {
     const response = await apiClient.get('/comments/getComments')
     return response.data;
